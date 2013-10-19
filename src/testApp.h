@@ -4,6 +4,7 @@
 #include "ofxOpenCv.h"
 #include "ofxKinect.h"
 
+
 class testApp : public ofBaseApp {
 	public:
 		
@@ -76,6 +77,9 @@ class testApp : public ofBaseApp {
         
         int yellowButton, redButton, blueButton, whiteButton, leftJoy, rightJoy, upJoy, downJoy, lastYellow, lastBlue, lastRed, lastWhite;
 
+    
+        int                 timeStamp;
+        string              uploadPath, pathToMeteor;
 
 		
 

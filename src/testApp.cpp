@@ -126,7 +126,12 @@ void testApp::setup() {
     yellowButton, redButton, blueButton, whiteButton, leftJoy, rightJoy, upJoy, downJoy, lastYellow, lastRed, lastWhite = 0;
     
     bSetupArduino = false;
-
+    
+    timeStamp = ofGetUnixTime();
+    //uploadPath = " s3://hyper-modern-pics";
+    uploadPath = " ec2-user@ec2-54-226-77-105.compute-1.amazonaws.com:./HeyMrDj/public/photobooth-images ";
+    pathToMeteor = " /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/bin/data/meteor-dj.pem ";
+    
 
 }
 
@@ -144,11 +149,8 @@ void testApp::update() {
     drawHeight = ofGetWindowHeight();
     
     if ( freezeFrame ){
-        cout << "freezeFrame";
         picTimer = ofGetElapsedTimeMillis() - picStart;
-        cout << "picStart: " << picStart;
-        cout << "picTimer: " << picTimer;
-        if ( picTimer > 1000 ) {
+        if ( picTimer > 2000 ) {
             freezeFrame = false;
         }
     }
@@ -193,7 +195,7 @@ void testApp::update() {
             grayImage.flagImageChanged();
             
             
-            unsigned char * pixels = new unsigned char[kinect.width*kinect.height*4];
+            unsigned char * pixels = new unsigned char[ kinect.width * kinect.height * 4 ];
             unsigned char * colorPixels = colorImg.getPixels();
             unsigned char * alphaPixels = grayImage.getPixels();
             
@@ -209,7 +211,6 @@ void testApp::update() {
                     else {
                         pixels[ pos * 4 + 3 ] = alphaPixels[ pos - rgbOffsetX - kinect.width * rgbOffsetY ];
                     }
-                    
                 }
             }
 
@@ -293,14 +294,30 @@ void testApp::takePic() {
     freezeFrame = true;
     snapShot.grabScreen( 0, 0, drawWidth, drawHeight );
     snapShot.saveImage( "photos/dockSnap-" + ofToString(snapCounter) + ".jpg" );
-    for ( int i = 0; i < lastSnaps.size() - 1; i ++ ) { //pass down the images
+    
+    for ( int i = 0; i < lastSnaps.size() - 1; i ++ ) {
         lastSnaps[ i ] = lastSnaps[ i + 1 ];
     }
-    lastSnaps[ lastSnaps.size() - 1 ].loadImage( "photos/dockSnap-" + ofToString(snapCounter) + ".jpg"); // load the new one
-    snapCounter++;
+    
+    lastSnaps[ lastSnaps.size() - 1 ].loadImage( "photos/dockSnap-" + ofToString( snapCounter ) + ".jpg");
+    
+    ofFile file( ofToDataPath( "photos/dockSnap-" + ofToString( snapCounter - lastSnaps.size()) + ".jpg"));
+    timeStamp = ofGetUnixTime();
+    if ( snapCounter >= lastSnaps.size()) {
+        cout << snapCounter << endl;
+        file.renameTo( "photos/upload/dockSnap-" + ofToString( timeStamp ) + ".jpg" );
+        string pathToFile = file.getAbsolutePath();
+        //string fileCMD = "/usr/local/bin/s3cmd put " + pathToFile + uploadPath;
+        string fileCMD = "/usr/bin/scp -r -i" + pathToMeteor + pathToFile + uploadPath;
+        const char * fileCMDChar = fileCMD.c_str();
+        system( fileCMDChar );
+        cout << fileCMD << endl;
+    }
+
+    snapCounter ++;
     picStart = ofGetElapsedTimeMillis();
     picTimer = 0;
-    
+
     
     
 }
@@ -335,7 +352,6 @@ void testApp::updateArduino(){
     
     if (bSetupArduino) {
         //listen for messages
-        
     }
     
 }
