@@ -15,6 +15,7 @@ void testApp::setup() {
     snapHeight = drawHeight / 2;
 
 	kinect.init();
+    //kinect.setRegistration( true );// auto calibrate rgb to depth from of008
 	//kinect.init(true);  // shows infrared instead of RGB video image
 	//kinect.init(false, false);  // disable infrared/rgb video iamge (faster fps)
 	kinect.setVerbose(true);
@@ -42,54 +43,87 @@ void testApp::setup() {
     rgbOffsetX = 15;
     rgbOffsetY = 21;
     
-    location.resize( 11 ); //load background images
-    location[ 0 ].loadImage("locations/field.jpg");
-    location[ 1 ].loadImage("locations/flag.jpg");
-    location[ 2 ].loadImage("locations/fireworks.jpg");
-    location[ 3 ].loadImage("locations/beach.jpg");
-    location[ 4 ].loadImage("locations/moon.jpg");
-    location[ 5 ].loadImage("locations/sea.jpg");
-    location[ 6 ].loadImage("locations/acid.jpg");
-    location[ 7 ].loadImage("locations/hotDogs.jpg");
-    location[ 8 ].loadImage("locations/hotel.jpg");
-    location[ 9 ].loadImage("locations/grandCanyon.jpg");
-    location[ 10 ].loadImage("locations/matrix.jpg");
-    
-    dock.resize( 15 ); //load docks
-    dock[ 0 ].loadImage("docks/blank.png");
-    dock[ 1 ].loadImage("docks/nealDock1.png");
-    dock[ 2 ].loadImage("docks/dock1.png");
-    dock[ 3 ].loadImage("docks/espn.png");
-    dock[ 4 ].loadImage("docks/nealDock2.png");
-    dock[ 5 ].loadImage("docks/liberty.png");
-    dock[ 6 ].loadImage("docks/ray.png");
-    dock[ 7 ].loadImage("docks/dock2.png");
-    dock[ 8 ].loadImage("docks/nealDock3.png");
-    dock[ 9 ].loadImage("docks/kevin.png");
-    dock[ 10 ].loadImage("docks/sandlot.png");
-    dock[ 11 ].loadImage("docks/nealDock4.png");
-    dock[ 12 ].loadImage("docks/shred.png");
-    dock[ 13 ].loadImage("docks/dock3.png");
-    dock[ 14 ].loadImage("docks/nealDock5.png");
+    location.resize( 22 ); //load background images
+    location[ 0 ].loadImage("locations/koreaBowling.jpg");
+    location[ 1 ].loadImage("locations/fall.jpg");
+    location[ 2 ].loadImage("locations/explosion.jpg");
+    location[ 3 ].loadImage("locations/grotto.jpg");
+    location[ 4 ].loadImage("locations/hackers.jpg");
+    location[ 5 ].loadImage("locations/island.jpg");
+    location[ 6 ].loadImage("locations/bowlingLaneLadies.jpg");
+    location[ 7 ].loadImage("locations/mud.jpg");
+    location[ 8 ].loadImage("locations/trumpGoldenRoom.jpg");
+    location[ 9 ].loadImage("locations/rug.jpg");
+    location[ 10 ].loadImage("locations/outerSpace.jpg");
+    location[ 11 ].loadImage("locations/blood.jpg");
+    location[ 12 ].loadImage("locations/laserBackground.jpg");
+    location[ 13 ].loadImage("locations/lightening.jpg");
+    location[ 14 ].loadImage("locations/mtRushmore.jpg");
+    location[ 15 ].loadImage("locations/seaPunk.jpg");
+    location[ 16 ].loadImage("locations/tardis.jpg");
+    location[ 17 ].loadImage("locations/volcano.jpg");
+    location[ 18 ].loadImage("locations/yellowSpiral.jpg");
+    location[ 19 ].loadImage("locations/route66.jpg");
+    location[ 20 ].loadImage("locations/jupiter.jpg");
+    location[ 21 ].loadImage("locations/capitol.jpg");
     
     
+    dock.resize( 28 ); //load scene partners
+    dock[ 0 ].loadImage("scenePartners/blank.png");
+    dock[ 1 ].loadImage("scenePartners/dudeBathrobe.png");
+    dock[ 2 ].loadImage("scenePartners/hugh.png");
+    dock[ 3 ].loadImage("scenePartners/donaldTrump.png");
+    dock[ 4 ].loadImage("scenePartners/ernie1.png");
+    dock[ 5 ].loadImage("scenePartners/mrt.png");
+    dock[ 6 ].loadImage("scenePartners/zachMorris.png");
+    dock[ 7 ].loadImage("scenePartners/ballerOldGuy.png");
+    dock[ 8 ].loadImage("scenePartners/hadouken.png");
+    dock[ 9 ].loadImage("scenePartners/julianne.png");
+    dock[ 10 ].loadImage("scenePartners/russel.png");
+    dock[ 11 ].loadImage("scenePartners/rickRoss.png");
+    dock[ 12 ].loadImage("scenePartners/woody.png");
+    dock[ 13 ].loadImage("scenePartners/alf.png");
+    dock[ 14 ].loadImage("scenePartners/jesus.png");
+    dock[ 15 ].loadImage("scenePartners/shiek.png");
+    dock[ 16 ].loadImage("scenePartners/freddy.png");
+    dock[ 17 ].loadImage("scenePartners/jcvd.png");
+    dock[ 18 ].loadImage("scenePartners/ernie2.png");
+    dock[ 19 ].loadImage("scenePartners/kittyMullet.png");
+    dock[ 20 ].loadImage("scenePartners/miami.png");
+    dock[ 21 ].loadImage("scenePartners/walter.png");
+    dock[ 22 ].loadImage("scenePartners/palms.png");
+    dock[ 23 ].loadImage("scenePartners/sailorMoon.png");
+    dock[ 24 ].loadImage("scenePartners/whiteRussian.png");
+    dock[ 25 ].loadImage("scenePartners/raverGirl.png");
+    dock[ 26 ].loadImage("scenePartners/whoopie.png");
+    dock[ 27 ].loadImage("scenePartners/slickRick.png");
+   
     
-    sfx.resize( 15 ); //load special effects
+    
+    
+    sfx.resize( 22 ); //load special effects
     sfx[ 0 ].loadImage("sfx/blank.png");
-    sfx[ 1 ].loadImage("sfx/pretzels.png");
-    sfx[ 2 ].loadImage("sfx/fireworks2.png");
-    sfx[ 3 ].loadImage("sfx/beer.png");
-    sfx[ 4 ].loadImage("sfx/rainingDogs.png");
-    sfx[ 5 ].loadImage("sfx/muscles.png");
-    sfx[ 6 ].loadImage("sfx/flames.png");
-    sfx[ 7 ].loadImage("sfx/kitties.png");
-    sfx[ 8 ].loadImage("sfx/fighterJets.png");
-    sfx[ 9 ].loadImage("sfx/truck.png");
-    sfx[ 10 ].loadImage("sfx/eagle.png");
-    sfx[ 11 ].loadImage("sfx/curlers.png");
-    sfx[ 12 ].loadImage("sfx/pizza.png");
-    sfx[ 13 ].loadImage("sfx/rainbow.png");
-    sfx[ 14 ].loadImage("sfx/dinosaurs.png");
+    sfx[ 1 ].loadImage("sfx/bowlingPins.png");
+    sfx[ 2 ].loadImage("sfx/money.png");
+    sfx[ 3 ].loadImage("sfx/badgers.png");
+    sfx[ 4 ].loadImage("sfx/pumpkin.png");
+    sfx[ 5 ].loadImage("sfx/explosions.png");
+    sfx[ 6 ].loadImage("sfx/bowlingBalls.png");
+    sfx[ 7 ].loadImage("sfx/wolves.png");
+    sfx[ 8 ].loadImage("sfx/burgers.png");
+    sfx[ 9 ].loadImage("sfx/crabs.png");
+    sfx[ 10 ].loadImage("sfx/guns.png");
+    sfx[ 11 ].loadImage("sfx/scooters.png");
+    sfx[ 12 ].loadImage("sfx/milk.png");
+    sfx[ 13 ].loadImage("sfx/baller.png");
+    sfx[ 14 ].loadImage("sfx/hearts.png");
+    sfx[ 15 ].loadImage("sfx/sharks.png");
+    sfx[ 16 ].loadImage("sfx/zap.png");
+    sfx[ 17 ].loadImage("sfx/ptero.png");
+    sfx[ 18 ].loadImage("sfx/weepingAngels.png");
+    sfx[ 19 ].loadImage("sfx/knives.png");
+    sfx[ 20 ].loadImage("sfx/ostrich.png");
+    sfx[ 21 ].loadImage("sfx/dolphins.png");
     
     locationPicker = 0;
     dockPicker = 0;
@@ -128,9 +162,9 @@ void testApp::setup() {
     bSetupArduino = false;
     
     timeStamp = ofGetUnixTime();
-    //uploadPath = " s3://hyper-modern-pics";
-    uploadPath = " ec2-user@ec2-54-226-77-105.compute-1.amazonaws.com:./HeyMrDj/public/photobooth-images ";
-    pathToMeteor = " /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/bin/data/meteor-dj.pem ";
+    //uploadPath = " s3://hyper-modern-pics"; //s3 bucket
+    //uploadPath = " ec2-user@ec2-54-226-77-105.compute-1.amazonaws.com:./HeyMrDj/public/photobooth-images "; //ec2 approach
+    //pathToMeteor = " /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/bin/data/meteor-dj.pem ";
     
 
 }
@@ -150,7 +184,7 @@ void testApp::update() {
     
     if ( freezeFrame ){
         picTimer = ofGetElapsedTimeMillis() - picStart;
-        if ( picTimer > 2000 ) {
+        if ( picTimer > 1000 ) {
             freezeFrame = false;
         }
     }
@@ -158,14 +192,13 @@ void testApp::update() {
     else if ( !freezeFrame ) {
         kinect.update();
     
-
         // there is a new frame and we are connected
         if(kinect.isFrameNew()) {
-
 
             // load grayscale depth image from the kinect source
             grayImage.setFromPixels(kinect.getDepthPixels(), kinect.width, kinect.height);
             colorImg.setFromPixels(kinect.getPixels(), kinect.width, kinect.height);
+            //colorImg.setFromPixels(kinect.getCalibratedRGBPixels(), kinect.width, kinect.height);
 
             // we do two thresholds - one for the far plane and one for the near plane
             // we then do a cvAnd to get the pixels which are a union of the two thresholds
@@ -308,10 +341,11 @@ void testApp::takePic() {
         file.renameTo( "photos/upload/dockSnap-" + ofToString( timeStamp ) + ".jpg" );
         string pathToFile = file.getAbsolutePath();
         //string fileCMD = "/usr/local/bin/s3cmd put " + pathToFile + uploadPath;
-        string fileCMD = "/usr/bin/scp -r -i" + pathToMeteor + pathToFile + uploadPath;
-        const char * fileCMDChar = fileCMD.c_str();
-        system( fileCMDChar );
-        cout << fileCMD << endl;
+        //string fileCMD = "/usr/bin/scp -r -i" + pathToMeteor + pathToFile + uploadPath;
+        //string fileCMD = "/usr/local/bin/sshpass -p 'K1ngk@p!' scp -r " + pathToFile +  " root@50.56.126.196:/var/www/vhosts/goodbyemark.wknyc.com/photobooth/images";
+        //const char * fileCMDChar = fileCMD.c_str();
+        //system( fileCMDChar );
+        //cout << fileCMD << endl;
     }
 
     snapCounter ++;
