@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5EF4B096-1D5D-4479-B0D1-7B5D8D72DF31</string>
+	<key>IDESourceControlProjectName</key>
+	<string>hyperModernPhotobooth</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>13DB55E4-3637-47A8-A18F-12D952B16A9B</key>
+		<string>https://github.com/currycurry/hyperModernPhotobooth</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>hyperModernPhotobooth.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>13DB55E4-3637-47A8-A18F-12D952B16A9B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/currycurry/hyperModernPhotobooth</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>13DB55E4-3637-47A8-A18F-12D952B16A9B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>13DB55E4-3637-47A8-A18F-12D952B16A9B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>hyperModernPhotobooth</string>
+		</dict>
+	</array>
+</dict>
+</plist>

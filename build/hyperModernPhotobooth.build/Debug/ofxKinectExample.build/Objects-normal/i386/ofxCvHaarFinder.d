@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvHaarFinder.cpp \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvHaarFinder.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvHaarFinder.cpp \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvHaarFinder.h \
   ../../../libs/openFrameworks/ofMain.h \
   ../../../libs/openFrameworks/utils/ofConstants.h \
   ../../../libs/glew/include/GL/glew.h \
@@ -29,6 +29,15 @@ dependencies: \
   ../../../libs/poco/include/Poco/Mutex_POSIX.h \
   ../../../libs/openFrameworks/utils/ofSystemUtils.h \
   ../../../libs/openFrameworks/utils/ofThread.h \
+  ../../../libs/poco/include/Poco/Thread.h \
+  ../../../libs/poco/include/Poco/Thread_POSIX.h \
+  ../../../libs/poco/include/Poco/Runnable.h \
+  ../../../libs/poco/include/Poco/SignalHandler.h \
+  ../../../libs/poco/include/Poco/Event.h \
+  ../../../libs/poco/include/Poco/Event_POSIX.h \
+  ../../../libs/poco/include/Poco/RefCountedObject.h \
+  ../../../libs/poco/include/Poco/AtomicCounter.h \
+  ../../../libs/poco/include/Poco/AutoPtr.h \
   ../../../libs/openFrameworks/utils/ofURLFileLoader.h \
   ../../../libs/openFrameworks/events/ofEvents.h \
   ../../../libs/openFrameworks/events/ofEventUtils.h \
@@ -36,24 +45,15 @@ dependencies: \
   ../../../libs/poco/include/Poco/AbstractEvent.h \
   ../../../libs/poco/include/Poco/SingletonHolder.h \
   ../../../libs/poco/include/Poco/SharedPtr.h \
-  ../../../libs/poco/include/Poco/AtomicCounter.h \
   ../../../libs/poco/include/Poco/ActiveResult.h \
-  ../../../libs/poco/include/Poco/Event.h \
-  ../../../libs/poco/include/Poco/Event_POSIX.h \
-  ../../../libs/poco/include/Poco/RefCountedObject.h \
   ../../../libs/poco/include/Poco/ActiveMethod.h \
   ../../../libs/poco/include/Poco/ActiveRunnable.h \
-  ../../../libs/poco/include/Poco/Runnable.h \
-  ../../../libs/poco/include/Poco/AutoPtr.h \
   ../../../libs/poco/include/Poco/ActiveStarter.h \
   ../../../libs/poco/include/Poco/ThreadPool.h \
-  ../../../libs/poco/include/Poco/Thread.h \
-  ../../../libs/poco/include/Poco/Thread_POSIX.h \
-  ../../../libs/poco/include/Poco/SignalHandler.h \
   ../../../libs/poco/include/Poco/FIFOStrategy.h \
+  ../../../libs/poco/include/Poco/DefaultStrategy.h \
   ../../../libs/poco/include/Poco/NotificationStrategy.h \
   ../../../libs/poco/include/Poco/AbstractDelegate.h \
-  ../../../libs/poco/include/Poco/CompareFunctions.h \
   ../../../libs/poco/include/Poco/Delegate.h \
   ../../../libs/poco/include/Poco/FunctionDelegate.h \
   ../../../libs/poco/include/Poco/Expire.h \
@@ -65,10 +65,10 @@ dependencies: \
   ../../../libs/openFrameworks/3d/ofMesh.h \
   ../../../libs/openFrameworks/gl/ofGLUtils.h \
   ../../../libs/openFrameworks/graphics/ofPixels.h \
-  ../../../libs/openFrameworks/math/ofVectorMath.h \
-  ../../../libs/openFrameworks/math/ofMatrix3x3.h \
   ../../../libs/openFrameworks/math/ofMatrix4x4.h \
   ../../../libs/openFrameworks/math/ofQuaternion.h \
+  ../../../libs/openFrameworks/math/ofVectorMath.h \
+  ../../../libs/openFrameworks/math/ofMatrix3x3.h \
   ../../../libs/openFrameworks/communication/ofSerial.h \
   ../../../libs/openFrameworks/communication/ofArduino.h \
   ../../../libs/openFrameworks/gl/ofFbo.h \
@@ -109,15 +109,14 @@ dependencies: \
   ../../../libs/fmodex/include/fmod_memoryinfo.h \
   ../../../libs/fmodex/include/fmod_errors.h \
   ../../../libs/openFrameworks/video/ofVideoGrabber.h \
-  ../../../libs/openFrameworks/video/ofQuickTimeGrabber.h \
-  ../../../libs/openFrameworks/video/ofQtUtils.h \
+  ../../../libs/openFrameworks/video/ofQTKitGrabber.h \
   ../../../libs/openFrameworks/video/ofVideoPlayer.h \
-  ../../../libs/openFrameworks/video/ofQuickTimePlayer.h \
+  ../../../libs/openFrameworks/video/ofQTKitPlayer.h \
   ../../../libs/openFrameworks/3d/ofCamera.h \
   ../../../libs/openFrameworks/3d/ofEasyCam.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxOpenCv.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvConstants.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/libs/opencv/include/opencv/cv.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxOpenCv.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvConstants.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/libs/opencv/include/opencv/cv.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/core_c.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/types_c.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/core.hpp \
@@ -129,37 +128,46 @@ dependencies: \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/imgproc/imgproc.hpp \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/video/tracking.hpp \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/features2d/features2d.hpp \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/miniflann.hpp \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/defines.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/config.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/flann.hpp \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/flann_base.hpp \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/general.h \
-  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/object_factory.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/matrix.h \
-  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/result_set.h \
-  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dist.h \
-  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/index_testing.h \
-  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/nn_index.h \
-  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/logger.h \
-  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/timer.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/params.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/any.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/saving.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/nn_index.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/result_set.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/all_indices.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/kdtree_index.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dynamic_bitset.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dist.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/heap.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/allocator.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/random.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/kdtree_single_index.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/kmeans_index.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/logger.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/composite_index.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/linear_index.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/hierarchical_clustering_index.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/lsh_index.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/lsh_table.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/autotuned_index.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/ground_truth.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/index_testing.h \
+  ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/timer.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/sampling.h \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/calib3d/calib3d.hpp \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/objdetect/objdetect.hpp \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/legacy/compat.hpp \
   ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/internal.hpp \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvImage.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvGrayscaleImage.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvBlob.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvColorImage.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvFloatImage.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvShortImage.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxOpenCv/src/ofxCvContourFinder.h
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvImage.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvGrayscaleImage.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvBlob.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvColorImage.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvFloatImage.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvShortImage.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxOpenCv/src/ofxCvContourFinder.h

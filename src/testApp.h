@@ -60,7 +60,10 @@ class testApp : public ofBaseApp {
         int                 snapCounter;
         vector <ofImage>    lastSnaps;
         bool                freezeFrame;
-        
+        bool                oneScreen;
+    
+        int                 numBackgrounds, numPartners, numSfx;
+    
         
               
         

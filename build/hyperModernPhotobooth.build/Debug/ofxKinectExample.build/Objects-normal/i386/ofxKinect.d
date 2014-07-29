@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxKinect/src/ofxKinect.cpp \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxKinect/src/ofxKinect.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxKinect/src/ofxKinect.cpp \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxKinect/src/ofxKinect.h \
   ../../../libs/openFrameworks/utils/ofConstants.h \
   ../../../libs/glew/include/GL/glew.h \
   ../../../libs/tess2/include/tesselator.h \
@@ -10,11 +10,6 @@ dependencies: \
   ../../../libs/openFrameworks/math/ofVec2f.h \
   ../../../libs/openFrameworks/math/ofVec4f.h \
   ../../../libs/openFrameworks/types/ofRectangle.h \
-  ../../../libs/openFrameworks/types/ofBaseTypes.h \
-  ../../../libs/openFrameworks/types/ofColor.h \
-  ../../../libs/openFrameworks/math/ofMath.h \
-  ../../../libs/openFrameworks/3d/ofMesh.h \
-  ../../../libs/openFrameworks/utils/ofUtils.h \
   ../../../libs/openFrameworks/utils/ofLog.h \
   ../../../libs/openFrameworks/utils/ofFileUtils.h \
   ../../../libs/poco/include/Poco/File.h \
@@ -27,24 +22,38 @@ dependencies: \
   ../../../libs/poco/include/Poco/Timestamp.h \
   ../../../libs/poco/include/Poco/File_UNIX.h \
   ../../../libs/openFrameworks/types/ofTypes.h \
+  ../../../libs/openFrameworks/types/ofColor.h \
+  ../../../libs/openFrameworks/math/ofMath.h \
   ../../../libs/poco/include/Poco/Mutex.h \
   ../../../libs/poco/include/Poco/Exception.h \
   ../../../libs/poco/include/Poco/ScopedLock.h \
   ../../../libs/poco/include/Poco/Mutex_POSIX.h \
+  ../../../libs/openFrameworks/types/ofBaseTypes.h \
+  ../../../libs/openFrameworks/3d/ofMesh.h \
+  ../../../libs/openFrameworks/utils/ofUtils.h \
   ../../../libs/openFrameworks/gl/ofGLUtils.h \
   ../../../libs/openFrameworks/graphics/ofPixels.h \
-  ../../../libs/openFrameworks/graphics/ofGraphics.h \
   ../../../libs/openFrameworks/math/ofMatrix4x4.h \
   ../../../libs/openFrameworks/math/ofQuaternion.h \
+  ../../../libs/openFrameworks/graphics/ofGraphics.h \
   ../../../libs/openFrameworks/gl/ofGLRenderer.h \
   ../../../libs/openFrameworks/graphics/ofPolyline.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxKinect/src/ofxBase3DVideo.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxKinect/libs/libusb/osx/include/libusb-1.0/libusb.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxKinect/libs/libfreenect/libfreenect.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxKinect/src/ofxKinectCalibration.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxKinect/src/ofxBase3DVideo.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/apps/myApps/hyperModernPhotobooth/../../../addons/ofxKinect/libs/libusb/osx/include/libusb-1.0/libusb.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxKinect/libs/libfreenect/libfreenect.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxKinect/src/ofxKinectCalibration.h \
   ../../../libs/openFrameworks/ofMain.h \
   ../../../libs/openFrameworks/utils/ofSystemUtils.h \
   ../../../libs/openFrameworks/utils/ofThread.h \
+  ../../../libs/poco/include/Poco/Thread.h \
+  ../../../libs/poco/include/Poco/Thread_POSIX.h \
+  ../../../libs/poco/include/Poco/Runnable.h \
+  ../../../libs/poco/include/Poco/SignalHandler.h \
+  ../../../libs/poco/include/Poco/Event.h \
+  ../../../libs/poco/include/Poco/Event_POSIX.h \
+  ../../../libs/poco/include/Poco/RefCountedObject.h \
+  ../../../libs/poco/include/Poco/AtomicCounter.h \
+  ../../../libs/poco/include/Poco/AutoPtr.h \
   ../../../libs/openFrameworks/utils/ofURLFileLoader.h \
   ../../../libs/openFrameworks/events/ofEvents.h \
   ../../../libs/openFrameworks/events/ofEventUtils.h \
@@ -52,24 +61,15 @@ dependencies: \
   ../../../libs/poco/include/Poco/AbstractEvent.h \
   ../../../libs/poco/include/Poco/SingletonHolder.h \
   ../../../libs/poco/include/Poco/SharedPtr.h \
-  ../../../libs/poco/include/Poco/AtomicCounter.h \
   ../../../libs/poco/include/Poco/ActiveResult.h \
-  ../../../libs/poco/include/Poco/Event.h \
-  ../../../libs/poco/include/Poco/Event_POSIX.h \
-  ../../../libs/poco/include/Poco/RefCountedObject.h \
   ../../../libs/poco/include/Poco/ActiveMethod.h \
   ../../../libs/poco/include/Poco/ActiveRunnable.h \
-  ../../../libs/poco/include/Poco/Runnable.h \
-  ../../../libs/poco/include/Poco/AutoPtr.h \
   ../../../libs/poco/include/Poco/ActiveStarter.h \
   ../../../libs/poco/include/Poco/ThreadPool.h \
-  ../../../libs/poco/include/Poco/Thread.h \
-  ../../../libs/poco/include/Poco/Thread_POSIX.h \
-  ../../../libs/poco/include/Poco/SignalHandler.h \
   ../../../libs/poco/include/Poco/FIFOStrategy.h \
+  ../../../libs/poco/include/Poco/DefaultStrategy.h \
   ../../../libs/poco/include/Poco/NotificationStrategy.h \
   ../../../libs/poco/include/Poco/AbstractDelegate.h \
-  ../../../libs/poco/include/Poco/CompareFunctions.h \
   ../../../libs/poco/include/Poco/Delegate.h \
   ../../../libs/poco/include/Poco/FunctionDelegate.h \
   ../../../libs/poco/include/Poco/Expire.h \
@@ -113,11 +113,10 @@ dependencies: \
   ../../../libs/fmodex/include/fmod_memoryinfo.h \
   ../../../libs/fmodex/include/fmod_errors.h \
   ../../../libs/openFrameworks/video/ofVideoGrabber.h \
-  ../../../libs/openFrameworks/video/ofQuickTimeGrabber.h \
-  ../../../libs/openFrameworks/video/ofQtUtils.h \
+  ../../../libs/openFrameworks/video/ofQTKitGrabber.h \
   ../../../libs/openFrameworks/video/ofVideoPlayer.h \
-  ../../../libs/openFrameworks/video/ofQuickTimePlayer.h \
+  ../../../libs/openFrameworks/video/ofQTKitPlayer.h \
   ../../../libs/openFrameworks/3d/ofCamera.h \
   ../../../libs/openFrameworks/3d/ofEasyCam.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxKinect/src/ofxKinectPlayer.h \
-  /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/../../../addons/ofxKinect/src/ofxKinectRecorder.h
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxKinect/src/ofxKinectPlayer.h \
+  /Users/curry/Documents/openframeworks_releases/0.7.4/addons/ofxKinect/src/ofxKinectRecorder.h

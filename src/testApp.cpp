@@ -7,6 +7,8 @@ void testApp::setup() {
     ofBackground(0,0,0);
 	ofSetFrameRate(60);
     
+    oneScreen = false;
+    
     imgWidth = 640; //size to capture from webcam
     imgHeight = 480;
     drawWidth = ofGetWindowWidth() / 2; //size to draw live on screen
@@ -43,88 +45,26 @@ void testApp::setup() {
     rgbOffsetX = 15;
     rgbOffsetY = 21;
     
-    location.resize( 22 ); //load background images
-    location[ 0 ].loadImage("locations/koreaBowling.jpg");
-    location[ 1 ].loadImage("locations/fall.jpg");
-    location[ 2 ].loadImage("locations/explosion.jpg");
-    location[ 3 ].loadImage("locations/grotto.jpg");
-    location[ 4 ].loadImage("locations/hackers.jpg");
-    location[ 5 ].loadImage("locations/island.jpg");
-    location[ 6 ].loadImage("locations/bowlingLaneLadies.jpg");
-    location[ 7 ].loadImage("locations/mud.jpg");
-    location[ 8 ].loadImage("locations/trumpGoldenRoom.jpg");
-    location[ 9 ].loadImage("locations/rug.jpg");
-    location[ 10 ].loadImage("locations/outerSpace.jpg");
-    location[ 11 ].loadImage("locations/blood.jpg");
-    location[ 12 ].loadImage("locations/laserBackground.jpg");
-    location[ 13 ].loadImage("locations/lightening.jpg");
-    location[ 14 ].loadImage("locations/mtRushmore.jpg");
-    location[ 15 ].loadImage("locations/seaPunk.jpg");
-    location[ 16 ].loadImage("locations/tardis.jpg");
-    location[ 17 ].loadImage("locations/volcano.jpg");
-    location[ 18 ].loadImage("locations/yellowSpiral.jpg");
-    location[ 19 ].loadImage("locations/route66.jpg");
-    location[ 20 ].loadImage("locations/jupiter.jpg");
-    location[ 21 ].loadImage("locations/capitol.jpg");
     
+    numBackgrounds = 33;
+    numPartners = 27;
+    numSfx = 22;
     
-    dock.resize( 28 ); //load scene partners
-    dock[ 0 ].loadImage("scenePartners/blank.png");
-    dock[ 1 ].loadImage("scenePartners/dudeBathrobe.png");
-    dock[ 2 ].loadImage("scenePartners/hugh.png");
-    dock[ 3 ].loadImage("scenePartners/donaldTrump.png");
-    dock[ 4 ].loadImage("scenePartners/ernie1.png");
-    dock[ 5 ].loadImage("scenePartners/mrt.png");
-    dock[ 6 ].loadImage("scenePartners/zachMorris.png");
-    dock[ 7 ].loadImage("scenePartners/ballerOldGuy.png");
-    dock[ 8 ].loadImage("scenePartners/hadouken.png");
-    dock[ 9 ].loadImage("scenePartners/julianne.png");
-    dock[ 10 ].loadImage("scenePartners/russel.png");
-    dock[ 11 ].loadImage("scenePartners/rickRoss.png");
-    dock[ 12 ].loadImage("scenePartners/woody.png");
-    dock[ 13 ].loadImage("scenePartners/alf.png");
-    dock[ 14 ].loadImage("scenePartners/jesus.png");
-    dock[ 15 ].loadImage("scenePartners/shiek.png");
-    dock[ 16 ].loadImage("scenePartners/freddy.png");
-    dock[ 17 ].loadImage("scenePartners/jcvd.png");
-    dock[ 18 ].loadImage("scenePartners/ernie2.png");
-    dock[ 19 ].loadImage("scenePartners/kittyMullet.png");
-    dock[ 20 ].loadImage("scenePartners/miami.png");
-    dock[ 21 ].loadImage("scenePartners/walter.png");
-    dock[ 22 ].loadImage("scenePartners/palms.png");
-    dock[ 23 ].loadImage("scenePartners/sailorMoon.png");
-    dock[ 24 ].loadImage("scenePartners/whiteRussian.png");
-    dock[ 25 ].loadImage("scenePartners/raverGirl.png");
-    dock[ 26 ].loadImage("scenePartners/whoopie.png");
-    dock[ 27 ].loadImage("scenePartners/slickRick.png");
-   
+    location.resize( numBackgrounds ); //load background images
+    for ( int i = 0; i < numBackgrounds; i ++ ) {
+        location[ i ].loadImage("locations/" + ofToString( i ) + ".jpg");
+    }
     
+    dock.resize( numPartners ); //load scene partners
+    for ( int i = 0; i < numPartners; i ++ ) {
+        dock[ i ].loadImage("scenePartners/" + ofToString( i ) + ".png");
+    }
     
-    
-    sfx.resize( 22 ); //load special effects
-    sfx[ 0 ].loadImage("sfx/blank.png");
-    sfx[ 1 ].loadImage("sfx/bowlingPins.png");
-    sfx[ 2 ].loadImage("sfx/money.png");
-    sfx[ 3 ].loadImage("sfx/badgers.png");
-    sfx[ 4 ].loadImage("sfx/pumpkin.png");
-    sfx[ 5 ].loadImage("sfx/explosions.png");
-    sfx[ 6 ].loadImage("sfx/bowlingBalls.png");
-    sfx[ 7 ].loadImage("sfx/wolves.png");
-    sfx[ 8 ].loadImage("sfx/burgers.png");
-    sfx[ 9 ].loadImage("sfx/crabs.png");
-    sfx[ 10 ].loadImage("sfx/guns.png");
-    sfx[ 11 ].loadImage("sfx/scooters.png");
-    sfx[ 12 ].loadImage("sfx/milk.png");
-    sfx[ 13 ].loadImage("sfx/baller.png");
-    sfx[ 14 ].loadImage("sfx/hearts.png");
-    sfx[ 15 ].loadImage("sfx/sharks.png");
-    sfx[ 16 ].loadImage("sfx/zap.png");
-    sfx[ 17 ].loadImage("sfx/ptero.png");
-    sfx[ 18 ].loadImage("sfx/weepingAngels.png");
-    sfx[ 19 ].loadImage("sfx/knives.png");
-    sfx[ 20 ].loadImage("sfx/ostrich.png");
-    sfx[ 21 ].loadImage("sfx/dolphins.png");
-    
+    sfx.resize( numSfx ); //load special effects
+    for ( int i = 0; i < numSfx; i ++ ) {
+        sfx[ i ].loadImage("sfx/" + ofToString( i ) + ".png");
+    }
+
     locationPicker = 0;
     dockPicker = 0;
     sfxPicker = 0;
@@ -165,7 +105,6 @@ void testApp::setup() {
     //uploadPath = " s3://hyper-modern-pics"; //s3 bucket
     //uploadPath = " ec2-user@ec2-54-226-77-105.compute-1.amazonaws.com:./HeyMrDj/public/photobooth-images "; //ec2 approach
     //pathToMeteor = " /Users/curry/Documents/openframeworks_releases/of_007/apps/myApps/hyperModernPhotobooth/bin/data/meteor-dj.pem ";
-    
 
 }
 
@@ -281,34 +220,15 @@ void testApp::draw() {
     dock[ dockPicker ].draw( dockX, dockY, drawWidth * dockScaler, drawHeight * dockScaler ); //draw dock behind
     ofDisableAlphaBlending();
     
-    /*if ( behind ) {
-        ofEnableAlphaBlending();
-	    dock[ dockPicker ].draw( dockX, dockY, drawWidth * dockScaler, drawHeight * dockScaler ); //draw dock behind
-        ofDisableAlphaBlending();
-        ofEnableAlphaBlending();
-        maskedImg.draw( 0, 0, drawWidth, drawHeight, false ); //draw live in front
-        ofDisableAlphaBlending();
-
-        
+    
+    if ( oneScreen == false ){
+    
+        //display last pics taken on other screen
+        lastSnaps[ 3 ].draw( drawWidth, 0, snapWidth, snapHeight );
+        lastSnaps[ 2 ].draw( drawWidth + snapWidth, 0, snapWidth, snapHeight );
+        lastSnaps[ 1 ].draw( drawWidth, snapHeight, snapWidth, snapHeight );
+        lastSnaps[ 0 ].draw( drawWidth + snapWidth, snapHeight, snapWidth, snapHeight );
     }
-    else {
-        ofEnableAlphaBlending();
-        maskedImg.draw( 0, 0, drawWidth, drawHeight, false ); //draw live behind
-        ofDisableAlphaBlending();
-        ofEnableAlphaBlending();
-        dock[ dockPicker ].draw( dockX, dockY, drawWidth * dockScaler, drawHeight * dockScaler ); //draw dock in front
-        ofDisableAlphaBlending();
-        
-    }*/
-    
-    
-    //display last pics taken on other screen
-    lastSnaps[ 3 ].draw( drawWidth, 0, snapWidth, snapHeight );
-    lastSnaps[ 2 ].draw( drawWidth + snapWidth, 0, snapWidth, snapHeight );
-    lastSnaps[ 1 ].draw( drawWidth, snapHeight, snapWidth, snapHeight );
-    lastSnaps[ 0 ].draw( drawWidth + snapWidth, snapHeight, snapWidth, snapHeight );
-
-
 
 }
 
